@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/connvertex</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+		
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Create table if doesn't exist else Update the table -->
+        <property name="hbm2ddl.auto">update</property>
+
+		<property name = "hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
+
+       <!--  <mapping class="com.examples.component.Person"/>
+        <mapping class="com.examples.association.on2one.Customers"/>
+        <mapping class="com.examples.association.on2one.Accounts"/>
+        <mapping class="com.examples.association.one2many2one.State"/>
+        <mapping class="com.examples.association.one2many2one.City"/>
+        <mapping class="com.examples.association.many2many.Course"/>
+        <mapping class="com.examples.association.many2many.Student"/> -->
+		
+		<mapping class="com.examples.association.one2many2one.State"/>
+        <mapping class="com.examples.association.one2many2one.City"/>
+		<mapping class="com.examples.inheritance.Employee"/>
+		<mapping class="com.examples.inheritance.Manager"/>
+		<mapping class="com.examples.inheritance.Programmer"/>
+		<mapping class="com.examples.inheritance.Tester"/>
+		<mapping class="com.examples.Student"/>
+		        
+    </session-factory>
+
+</hibernate-configuration>
+

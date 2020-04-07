@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>This is Home Page</h2>
+	
+	<form action = "SearchUsers" method = "POST">
+		Search by phone: <input type = "text" name = "ph" onkeyup="sendPhone()">
+	</form>
+	<div id = "content">
+	</div>
+	<script type="text/javascript">
+		function sendPhone() {
+			var phone = document.forms[0].ph.value;
+			var url = "/webapps-hibernate-backend/SearchUsers?ph="+phone;
+			var ele = document.getElementById('content');
+			var http = new XMLHttpRequest();
+			http.open("POST", url, true);
+			http.send();
+			http.onreadystatechange = function() {
+				if(http.readyState == 4) {
+					ele.innerHTML = http.responseText;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean id = "i1" class = "com.examples.Pan"></bean>
+	<bean id = "i2" class = "com.examples.DrivingLicense"></bean>
+	<bean id = "i3" class = "com.examples.Aadhar"></bean>
+
+	<bean id = "ds" class = "com.examples.DataSource">
+		<constructor-arg index = "0" value = "com.mysql.Driver" />
+		<constructor-arg index = "3" value = "jdbc:mysql:test" />
+		<constructor-arg index = "1" value = "system" />
+		<constructor-arg index = "2" value = "root" />
+	</bean>
+	<bean id = "ju" class = "com.examples.JdbcUtility">
+		<property name = "author" value = "Alexandar" />
+		<property name = "dataSource" ref = "ds" />
+	</bean>
+</beans>

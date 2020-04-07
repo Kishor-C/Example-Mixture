@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean id = "dao1" class = "com.examples.CustomerDao"></bean>
+	<bean id = "dao2" class = "com.examples.AccountDao"></bean>
+	<bean id = "customerService" class = "com.examples.CustomerService" autowire="byType">
+	</bean>
+	
+	<bean id = "address1" class = "com.examples.Address">
+		<property name="state" value = "Karanataka"></property>
+	</bean>
+	
+	<bean id = "ax" class = "com.examples.Address">
+		<property name="state" value = "Maharastra"></property>
+	</bean>	
+	
+	<bean id = "emp1" class = "com.examples.Employee" autowire="byName">
+		<property name="name" value = "Admin"></property>
+	</bean>
+	
+	
+	<bean id = "location" class = "com.examples.Location">
+		<property name="names">
+			<list>
+				<value>Bangalore</value>
+				<value>Chennai</value>
+				<value>Delhi</value>
+			</list>
+		</property>
+		<property name="uri">
+			<map>
+				<entry key = "airtel2g" value="www.airtel2g.com"></entry>
+				<entry key = "airtel4g" value="www.airtel4g.com"></entry>
+				<entry key = "airtel" value = "www.airtel.com"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	
+</beans>

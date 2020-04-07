@@ -1,0 +1,5 @@
+server:
+  port: 9090
+  servlet:    context-path: /spring-boot-demo
+spring:  mvc:    view:      prefix: /WEB-INF/pages/
+      suffix: .jsp
