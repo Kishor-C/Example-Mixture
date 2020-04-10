@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Service
 public class WalletService {
@@ -13,12 +12,16 @@ public class WalletService {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	@HystrixCommand(fallbackMethod = "addAmountToWalletFallBack"
-			)
+	@HystrixCommand(fallbackMethod = "addAmountToWalletFallBack")
 	public Wallet addAmountToWallet(int accountNo) {
 		Wallet wallet = new Wallet();
-		Account account = restTemplate.getForObject("http://ACCOUNT-MICRO-SERVICE:8083/account/"+accountNo, Account.class);
-		wallet.setBalance(account.getBalance() * 0.5);
+		for(int i = 1; i < 10; i++) {
+			new Thread(() -> {
+				Account account = restTemplate.getForObject("http://ACCOUNT-MICRO-SERVICE/account/"+accountNo, Account.class);
+				wallet.setBalance(account.getBalance() * 0.5);
+			}).start();	
+		}
+		
 		return wallet;
 	}
 	
