@@ -15,6 +15,7 @@ public class WalletService {
 	@HystrixCommand(fallbackMethod = "addAmountToWalletFallBack")
 	public Wallet addAmountToWallet(int accountNo) {
 		Wallet wallet = new Wallet();
+		// making use of Ribbon when multiple requests sent to multiple instances of Account-Micro-Service
 		for(int i = 1; i < 10; i++) {
 			new Thread(() -> {
 				Account account = restTemplate.getForObject("http://ACCOUNT-MICRO-SERVICE/account/"+accountNo, Account.class);
