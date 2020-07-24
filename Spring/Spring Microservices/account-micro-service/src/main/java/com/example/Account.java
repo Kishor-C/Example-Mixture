@@ -6,7 +6,6 @@ public class Account {
 	
 	public Account() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Account(int accountNo, double balance) {
 		super();
