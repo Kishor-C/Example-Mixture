@@ -16,6 +16,7 @@ public class LambdaExpressionDemo {
 		set1.add(10);
 		set1.add(35);
 		set1.add(15);
+		
 		System.out.println("Set1: "+set1);
 		Comparator<Integer> descendingOrderLambda = (o1, o2) -> o2 -o1;
 		TreeSet<Integer> set2 = new TreeSet<>(descendingOrderLambda);
