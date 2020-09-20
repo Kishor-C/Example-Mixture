@@ -1,3 +1,6 @@
+create database profile_contact_db;
+use profile_contact_db;
+
 create table profile(
 	userid int auto_increment, 
 	name varchar(15), 
