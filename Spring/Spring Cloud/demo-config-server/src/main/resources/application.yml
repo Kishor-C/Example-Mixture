@@ -7,3 +7,4 @@ spring:
     git:
      default-label: master
      uri: https://github.com/Kishor-C/spring-cloud-config.git
+
