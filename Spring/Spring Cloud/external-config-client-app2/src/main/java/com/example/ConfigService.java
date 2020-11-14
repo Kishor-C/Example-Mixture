@@ -15,7 +15,7 @@ public class ConfigService {
 	@Value("${database.password: Hello Password}")
 	private String password;
 	
-	@Value("${title: Hello Title}")
+	@Value("${title}")
 	private String title;
 	
 	public String getUrl() {
