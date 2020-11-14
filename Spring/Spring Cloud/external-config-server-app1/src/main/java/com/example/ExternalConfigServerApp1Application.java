@@ -3,15 +3,13 @@ package com.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
-//import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableConfigServer
-//@EnableEurekaClient
-public class ConfigServerExternalizationApplication {
+public class ExternalConfigServerApp1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerExternalizationApplication.class, args);
+		SpringApplication.run(ExternalConfigServerApp1Application.class, args);
 	}
 
 }

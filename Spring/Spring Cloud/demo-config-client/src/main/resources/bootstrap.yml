@@ -1,8 +1,0 @@
-spring:
- application: 
-  name: foo-server
- cloud:
-  config:
-   uri: http://localhost:8081/
- profiles:
-  active: prod, dev, qa
