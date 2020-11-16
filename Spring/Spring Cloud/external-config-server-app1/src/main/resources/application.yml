@@ -1,4 +1,4 @@
 server:
   port: 8888
 spring:  cloud:    config:      server:        git:
-          default-label: master          uri: https://github.com/Kishor-C/spring-cloud-repos.git          search-paths: items, items-a
+          default-label: master          uri: https://github.com/Kishor-C/spring-cloud-repos.git          search-paths: items, items-a          force-pull: true                
