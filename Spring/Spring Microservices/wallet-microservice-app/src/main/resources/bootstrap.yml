@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: wallet-service
+
+
+
+
+#resilience4j:#  circuitbreaker:#    instances:#      walletService:
+#        minimum-number-of-calls: 5
+#        sliding-window-size: 10
+#        register-health-indicator: false
+#        permitted-number-of-calls-in-half-open-state: 3
+#        automatic-transition-from-open-to-half-open-enabled: true
+#        wait-duration-in-open-state: 2s
+#        failure-rate-threshold: 50
+#        event-consumer-buffer-size: 10
+#        record-exceptions:#          - java.io.IOException
+#          - java.util.concurrent.TimeoutException#         
+
+#resilience4j:#  circuitbreaker:#    instances:#      walletService:
+#        register-health-indicator: true
+#        ring-buffer-size-in-closed-state: 5
+#        ring-buffer-size-in-half-open-state: 3
+#        wait-duration-in-open-state: 10s
+#        failure-rate-threshold: 50
+#        record-exceptions:#          - java.io.IOException
+#          - java.util.concurrent.TimeoutException
+#  retry:#    instances:#      retryWalletService:
+#        max-retry-attempts: 3
+#        wait-duration: 10000
+#        retry-exceptions:#          - java.util.concurrent.TimeoutException
+
+#  bulkhead:#    instances:#      bulkheadWalletService:
+#        max-wait-duration: 2ms
+#        max-concurrent-calls: 20
+#        
+#  ratelimiter:#    instances:#      walletService:
+        
+      
+      
