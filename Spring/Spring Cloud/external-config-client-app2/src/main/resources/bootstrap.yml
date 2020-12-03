@@ -1,3 +1,0 @@
-spring:
-  application:
-    name: foo, new-foo  cloud:    config:      uri: http://localhost:8888/

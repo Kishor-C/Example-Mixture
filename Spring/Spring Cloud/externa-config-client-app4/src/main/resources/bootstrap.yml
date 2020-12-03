@@ -1,3 +1,0 @@
-spring:
-  application:
-    name: external-config  profiles:    active: developer
