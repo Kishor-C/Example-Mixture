@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,5 +19,9 @@ public class WalletController {
 	@GetMapping("{amount}")
 	public ResponseEntity<Object> addMoney(@PathVariable("amount") double amount) {
 		return ResponseEntity.status(200).body(walletService.addAmountToWallet(amount));
+	}
+	@PostMapping("{amount}")
+	public ResponseEntity<Object> debitMoney(@PathVariable("amount") double amount) {
+		return ResponseEntity.status(200).body(walletService.debitAmountFromWallet(amount));
 	}
 }

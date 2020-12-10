@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: demo-microservice
+
+security:  oauth2:    resource:      user-info-uri: http://localhost:8081/user

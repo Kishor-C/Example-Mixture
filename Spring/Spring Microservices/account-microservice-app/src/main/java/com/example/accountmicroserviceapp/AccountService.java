@@ -14,6 +14,15 @@ public class AccountService {
 		transaction.setTransactionId(new Double(Math.random() * 123456).intValue());
 		transaction.setAmount(amount);
 		transaction.setDescription(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy'T'hh:mm:ss")));
+		System.out.println("****** debit called *******");
+		return transaction;
+	}
+	
+	
+	public Transaction credit(Transaction transaction) {
+		transaction.setTransactionId(11234);
+		transaction.setAmount(transaction.getAmount() + 2000);
+		System.out.println("---- Amount  credit to the account balance is: "+transaction.getAmount()+"-----------");
 		return transaction;
 	}
 }
