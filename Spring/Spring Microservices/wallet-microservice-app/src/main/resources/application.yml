@@ -1,15 +1,29 @@
 server:
   port: 9092
 
-management:  endpoints:    web:      exposure:        include: "*"  endpoint:    health:      show-details: always  health:    circuitbreakers:      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
     
-resilience4j:  circuitbreaker:    instances:      walletService:
+resilience4j:
+  circuitbreaker:
+    instances:
+      walletService:
         register-health-indicator: true
         ring-buffer-size-in-closed-state: 5
         ring-buffer-size-in-half-open-state: 3
         wait-duration-in-open-state: 50s
         failure-rate-threshold: 50
-        record-exceptions:          - java.io.IOException
+        record-exceptions:
+          - java.io.IOException
           - java.util.concurrent.TimeoutException
           - org.springframework.web.client.ResourceAccessException
         
@@ -23,9 +37,13 @@ resilience4j:  circuitbreaker:    instances:      walletService:
           - java.io.IOException
           - java.util.concurrent.TimeoutException
           - org.springframework.web.client.ResourceAccessException
-            retry:    instances:      retryService:
+          
+  retry:
+    instances:
+      retryService:
         max-retry-attempts: 4
         wait-duration: 5000
-        retry-exceptions:          - java.io.IOException
+        retry-exceptions:
+          - java.io.IOException
           - java.util.concurrent.TimeoutException
           - org.springframework.web.client.ResourceAccessException
